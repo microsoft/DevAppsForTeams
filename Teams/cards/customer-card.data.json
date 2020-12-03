@@ -1,0 +1,20 @@
+{
+    "id": 1,
+    "firstName": "Sydney",
+    "lastName": "Mattos",
+    "gender": "female",
+    "address": "1234 Anywhere St.",
+    "city": " Phoenix ",
+    "state": {
+        "abbreviation": "AZ",
+        "name": "Arizona"
+    },
+    "orders": [
+        {"productName": "Basketball", "itemCost": 7.99},
+        {"productName": "Shoes", "itemCost": 199.99}
+    ],
+    "latitude": 33.299,
+    "longitude": -111.963,
+    "salesPersonId": 5,
+    "salesPerson": "Burke Holland"
+}

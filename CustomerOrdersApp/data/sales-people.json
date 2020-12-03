@@ -1,0 +1,74 @@
+[
+    {
+          "id": 1,
+          "firstName": "MOD",
+          "lastName": "Administrator",
+          "gender": "male",
+          "address": "1234 Anywhere St.",
+          "city": "Los Angelos",
+          "state": {
+              "abbreviation": "CA",
+              "name": "California"
+          }
+    },
+    {
+          "id": 2,
+          "firstName": "Dan",
+          "lastName": "Wahlin",
+          "gender": "female",
+          "address": "345 Cedar Point Ave.",
+          "city": "Dallas",
+          "state": {
+              "abbreviation": "TX",
+              "name": "Texas"
+          }
+    },
+    {
+          "id": 3,
+          "firstName": "Tina",
+          "lastName": "Evans",
+          "gender": "female",
+          "address": "1822 Long Bay Dr.",
+          "city": "Seattle",
+          "state": {
+            "abbreviation": "WA",
+            "name": "Washington"
+          }
+    },
+    {
+        "id": 4,
+        "firstName": "Bob",
+        "lastName": "German",
+        "gender": "male",
+        "address": "5 Wayside Rd.",
+        "city": "Burlington",
+        "state": {
+            "abbreviation": "MA",
+            "name": "Massachusetts"
+        }
+    },
+    {
+        "id": 5,
+        "firstName": "Burke",
+        "lastName": "Holland",
+        "gender": "male",
+        "address": "145 Mountain Dr.",
+        "city": "Nashville",
+        "state": {
+            "abbreviation": "TN",
+            "name": "Tennessee"
+        }
+    },
+    {
+        "id": 6,
+        "firstName": "Don",
+        "lastName": "Johnson",
+        "gender": "male",
+        "address": "1850 Long Bay Dr.",
+        "city": "Seattle",
+        "state": {
+            "abbreviation": "WA",
+            "name": "Washington"
+        }
+    }
+]

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row card-container">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let customer of customers;trackBy:trackbyService.customer">
+            <div class="card">
+                <div class="card-header">
+                    <a [routerLink]="['/customers',customer.id,'details']" class="white">
+                        {{customer.firstName | capitalize }} {{ customer.lastName | capitalize }} 
+                    </a>
+                    <a [routerLink]="['/customers',customer.id,'edit']">
+                        <i title="Edit"  
+                           class="pull-right glyphicon glyphicon-edit edit-icon white"></i>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="clearfix">
+                        <div class="pull-left card-body-left">
+                            <a href="#" class="white">
+                                <img src="assets/images/{{customer.gender | lowercase}}.png" class="card-image" />
+                            </a>
+                        </div>
+                        <div class="pull-left card-body-right">
+                            <div class="card-body-content">
+                                {{ customer.city | trim }}, {{ customer.state.abbreviation }}
+                                <br />
+                                Sales: {{ customer.salesPersonId | salespersonfinder:salesPeople }}
+                            </div>
+                            <a [routerLink]="['/customers',customer.id,'orders']">View Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!customers.length">
+            No Records Found
+        </div>
+    </div>
+</div>
