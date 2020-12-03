@@ -1,14 +1,16 @@
-# Project
+# Developing Apps for Teams
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+Prerequisites:
 
-As the maintainer of this project, please make a few updates:
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1)
+- [Microsoft 365 tenant](https://developer.microsoft.com/microsoft-365/dev-program)
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+Login to Azure:
+
+```powershell
+az login --tenant <REPLACE_WITH_TENANT_NAME_OR_ID> --allow-no-subscriptions
+```
 
 ## Contributing
 

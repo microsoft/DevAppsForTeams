@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.8/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.8",
+  "version": "1.0.0",
+  "id": "efe57f82-7f13-495b-ac41-e5a51384e4ba",
+  "packageName": "com.microsoft.teams.app",
+  "developer": {
+      "name": "Tailwind Traders",
+      "websiteUrl": "https://your-hostname-here.ngrok.io",
+      "privacyUrl": "https://your-hostname-here.ngrok.io",
+      "termsOfUseUrl": "https://your-hostname-here.ngrok.io"
+  },
+  "icons": {
+      "color": "color.png",
+      "outline": "outline.png"
+  },
+  "name": {
+      "short": "Tailwind Traders CRM",
+      "full": "Tailwind Traders CRM"
+  },
+  "description": {
+      "short": "Tailwind Traders CRM Project",
+      "full": "Tailwind Traders CRM Project"
+  },
+  "accentColor": "#FFFFFF",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://learntogethercrm.ngrok.io/config",
+      "canUpdateConfiguration": true,
+      "scopes": [
+        "team",
+        "groupchat"
+      ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "index",
+      "name": "Customer App",
+      "contentUrl": "https://learntogethercrm.ngrok.io/tab",
+      "websiteUrl": "https://learntogethercrm.ngrok.io/tab",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "bots": [
+      {
+          "botId": "ee3cda2a-4e28-495b-bc89-54f3a1a9f66e",
+          "scopes": [
+              "personal",
+              "team",
+              "groupchat"
+          ],
+          "supportsFiles": false,
+          "isNotificationOnly": false
+      }
+  ],
+  "permissions": [
+      "identity",
+      "messageTeamMembers"
+  ],
+  "validDomains": [
+      "learntogethercrm.ngrok.io",
+      "learntogetherbot.ngrok.io",
+      "login.microsoftonline.com",
+      "localhost"
+  ],
+  "webApplicationInfo": {
+  "id": "a1695d4d-84c0-4750-be9b-e049c9c68f19",
+  "resource": "api://learntogethercrm.ngrok.io/a1695d4d-84c0-4750-be9b-e049c9c68f19"
+  }
+}

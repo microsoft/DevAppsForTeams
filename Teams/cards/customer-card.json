@@ -1,0 +1,77 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "weight": "Bolder",
+            "text": "${$root.changeType} Customer",
+            "wrap": true
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "style": "Person",
+                            "url": "https://learntogethercrm.ngrok.io/assets/images/${if($root.gender == 'female', 'female.png', 'male.png')}",
+                            "size": "Medium"
+                        }
+                    ],
+                    "width": "auto"
+                },
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "size": "Medium",
+                            "weight": "Bolder",
+                            "text": "${$root.firstName} ${$root.lastName}",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "spacing": "None",
+                            "text": "${$root.address}",
+                            "isSubtle": true,
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "spacing": "None",
+                            "text": "${$root.city}, ${$root.state.abbreviation}",
+                            "isSubtle": true,
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Sales Person: ${$root.salesPerson}",
+                            "weight": "Bolder",
+                            "wrap": true
+                        }
+                    ],
+                    "width": "stretch"
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "$when": "${$root.latitude != undefined}",
+            "url": "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/${$root.latitude},${$root.longitude}/4?&pp=${$root.latitude},${$root.longitude}&key=At1jz5shJJehBl94CpvgIIdaqVGcpOGfpkpU2nU4rRl3sV1MxWVMVYX92kXoLg5i"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "$when": "${$root.teamsTabLink != undefined}",
+            "title": "Customer Details",
+            "url": "${$root.teamsTabLink}"
+        }
+    ]
+}
