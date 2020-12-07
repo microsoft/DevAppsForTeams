@@ -9,6 +9,32 @@
 -  [ngrok](https://ngrok.com/) or equivalent tunneling solution
 -  [M365 developer account](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant) or access to a Teams account with the appropriate permissions to install an app.
 
+**Configure Cognitive Services**
+
+Rename `.env sample` file as `.env`.
+
+**Create LUIS model (Language Understanding Intelligent Service)**
+- [Import](https://cda.ms/1RB) `TailwindLuis.json` (available under `services > CognitiveServices` folder) to [LUIS Portal](https://www.luis.ai/).
+- [Deploy](https://cda.ms/1RB) your LUIS app to Azure, `Test` and `Publish` your LUIS model.
+- Update the following fields in `.env` file:
+
+```
+LuisAppId=<your Luis app id>
+LuisAPIKey=<your Luis api key>
+LuisAPIHostName=<your Luis Hostname>
+```
+
+**Create QnA Maker knowledge base**
+- [Create](https://cda.ms/1RF) a knowledge base in [QnA Maker Portal](https://www.qnamaker.ai/).
+- [Import](https://cda.ms/1RG) `TailwindQnAMaker.csv` (available under the `services > CognitiveServices` folder), `Test` and `Publish` your knowledge base.
+- Update the following fields in `.env` file:
+
+```
+QnAKnowledgebaseId=<your QnA Maker id>
+QnAEndpointKey= <your QnA Maker Endpoint key>
+QnAEndpointHostName=<your QnA Maker Hostname>
+```
+
 **Configure Ngrok**
 
 Your app will be run from a localhost server. You will need to setup Ngrok in order to tunnel from the Teams client to localhost. 
