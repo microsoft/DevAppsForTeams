@@ -1,16 +1,144 @@
 # Developing Apps for Teams
 
-Prerequisites:
+## Prerequisites
 
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 - [PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1)
 - [Microsoft 365 tenant](https://developer.microsoft.com/microsoft-365/dev-program)
+- [Node.js LTS](https://nodejs.org/)
 
-Login to Azure:
+## Setup
 
-```powershell
-az login --tenant <REPLACE_WITH_TENANT_NAME_OR_ID> --allow-no-subscriptions
-```
+Following instructions are meant to help you run the project locally on your computer. If you want to deploy it to Azure, you will need to adjust the URL of where the web app is hosted to match the URL of your web app in Azure.
+
+### Set up SSL and a host name
+
+Start with setting up a self-signed SSL certificate and creating a custom host name that will resolve to your computer. This is necessary, since the free version of ngrok allows opening only one tunnel. If you have a paid version of ngrok, you can skip this section and use the URL of your ngrok tunnel.
+
+#### Create certificate authority and a certificate
+
+1. Open terminal
+1. Create certificate authority by executing:
+
+    ```sh
+    npx mkcert create-ca --organization "MyOrg" --validity 825
+    ```
+
+1. Create certificate by executing:
+
+    ```sh
+    npx mkcert create-cert --ca-key "ca.key" --ca-cert "ca.crt" --validity 825 --domains "devappsforteams.local"
+    ```
+
+    As the domain name, you can specify any valid fully-qualified domain name (FQDN) you want. In the next step, you will configure your computer to resolve this FQDN to your local machine.
+
+1. Follow the steps in [this article](https://bob1german.com/2020/10/17/setting-up-ssl-for-tabs-in-the-teams-toolkit-for-visual-studio-code/) to add the generated certificate authority to your cert store
+
+#### Configure host name
+
+1. In the code editor started as administrator, open your `hosts` file (located in `c:\windows\system32\drivers\etc\hosts` in Windows and in `/etc/hosts`) and append to it: `127.0.0.1    devappsforteams.local`, replacing `devappsforteams.local` with the FQDN you chose in the previous steps
+1. Save your changes
+
+#### Configure certificate and host name with the web app
+
+1. In the `CustomerOrdersApp` folder, create a new folder named `.cert`
+1. Copy the generated `cert.crt` and `cert.key` files to `CustomerOrdersApp/.cert`
+1. In the code editor, open the `CustomerOrdersApp/server.js` file and on line 16, update the value of the `domain` const to match your FQDN
+
+### Deploy Azure AD configuration
+
+1. In the code editor, open the `setup/setup.ps1` file
+1. Change the value of the `$domain` variable to the FQDN you chose previously followed by `:8443`, eg. `devappsforteams.local:8443`
+1. Start PowerShell
+1. Change the working directory to `setup`
+1. Login to Azure:
+
+    ```powershell
+    az login --tenant <REPLACE_WITH_TENANT_NAME_OR_ID> --allow-no-subscriptions
+    ```
+
+1. Execute the setup script:
+
+    ```powershell
+    ./setup.ps1
+    ```
+
+    **Tip:**
+    If the setup script fails with an `Request_ResourceNotFound` error, execute the script again. Sometimes creating the Azure AD app takes longer than expected and when the script continues, the app isn't fully provisioned yet. Running the script again, will update the previously created app with the missing values.
+
+1. Take note of the `AppId`, `AppPassword` and `AppUri` output by the setup script
+
+### Configure the web app
+
+1. In the code editor open the `CustomerOrdersApp/.env sample` file
+1. Change the value of the `AppId` and `AppPassword` properties to match the values returned by the setup script in the previous step
+1. Save the file as `CustomerOrdersApp/.env`
+
+### Start the web app
+
+1. Open terminal
+1. Change the working directory to `CustomerOrdersApp`
+1. Restore project dependencies by executing:
+
+    ```sh
+    npm install
+    ```
+
+1. Build the web app by executing:
+
+    ```sh
+    npm run build
+    ```
+
+1. Start the web app by executing:
+
+    ```sh
+    npm start
+    ```
+
+1. Verify that you can open the web app, by navigating in the browser to `https://devappsforteams.local:8443`, where the domain name is the FQDN you chose previously
+
+### Setup bot
+
+TBD: We need to setup the bot here because we need to include its ID in the manifest in the next step
+
+### Update Teams app manifest
+
+1. In the code editor open the `Teams/manifest sample.json` file
+1. In the `developer` property, change the value of the `websiteUrl`, `privacyUrl` and `termsOfUseUrl` properties to match the URL of your web app, eg. `https://devappsforteams.local:8443`
+1. In the `configurableTabs` property, update the value of the `configurationUrl` property to match your ngrok tunnel followed by `config`, eg. `https://devappsforteams.local:8443/config`
+1. In the `staticTabs` property, update the value of the `contentUrl` and `websiteUrl` properties to match the URL of your ngrok tunnel followed by `tab`, eg. `https://devappsforteams.local:8443/tab`
+1. In the `bots` property, update the value of the `botId` property to the ID of the bot you configured in the previous step, eg. `ee3cda2a-4e28-495b-bc89-54f3a1a9f66e`
+1. In the `validDomains` array, include your FQDN without the port number, eg. `devappsforteams.local`
+1. In the `webApplicationInfo` property, update the value of the `id` property to the `AppId` value returned by the setup script
+1. In the `webApplicationInfo` property, update the value of the `resource` property to the `AppUri` value returned by the setup script
+
+### Create Teams app package
+
+1. Open terminal
+1. Change the working directory to `Teams`
+1. Restore project dependencies by executing:
+
+    ```sh
+    npm install
+    ```
+
+1. Create Teams app package by executing:
+
+    ```sh
+    npm run build:zip
+    ```
+
+### Deploy app to Teams
+
+1. In the web browser navigate to `https://teams.microsoft.com` and sign in with your dev account
+1. From the left rail, select **Apps**
+1. From the menu, select **Upload a custom app** and in the submenu choose `Upload for <your-organization>`
+1. In the file dialog, select the generated `Teams/package/TailwindTraders.zip` file
+1. In the list of apps, select the newly added app and in the app's dialog, choose **Add**
+1. After the app launched, from the tab-header bar choose **Customer App**. You should see the web app launched inside Teams
+
+TBD: add steps for trying out the bot
 
 ## Contributing
 
