@@ -1,0 +1,201 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "Customers",
+      "features": []
+    },
+    {
+      "name": "Goodbye",
+      "features": []
+    },
+    {
+      "name": "Greeting",
+      "features": []
+    },
+    {
+      "name": "Help",
+      "features": []
+    },
+    {
+      "name": "LatestCustomer",
+      "features": []
+    },
+    {
+      "name": "None",
+      "features": []
+    },
+    {
+      "name": "QnA",
+      "features": []
+    }
+  ],
+  "entities": [],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [],
+  "prebuiltEntities": [],
+  "utterances": [
+    {
+      "text": "are you able to get a haircut",
+      "intent": "QnA",
+      "entities": []
+    },
+    {
+      "text": "assigned customers",
+      "intent": "Customers",
+      "entities": []
+    },
+    {
+      "text": "bye",
+      "intent": "Goodbye",
+      "entities": []
+    },
+    {
+      "text": "can you help",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "can you show me my customer list?",
+      "intent": "Customers",
+      "entities": []
+    },
+    {
+      "text": "get customers",
+      "intent": "Customers",
+      "entities": []
+    },
+    {
+      "text": "get me the newest customer",
+      "intent": "LatestCustomer",
+      "entities": []
+    },
+    {
+      "text": "good afternoon",
+      "intent": "Greeting",
+      "entities": []
+    },
+    {
+      "text": "good bye",
+      "intent": "Goodbye",
+      "entities": []
+    },
+    {
+      "text": "good evening",
+      "intent": "Greeting",
+      "entities": []
+    },
+    {
+      "text": "good morning",
+      "intent": "Greeting",
+      "entities": []
+    },
+    {
+      "text": "goodbye",
+      "intent": "Goodbye",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "Greeting",
+      "entities": []
+    },
+    {
+      "text": "help",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "hi",
+      "intent": "Greeting",
+      "entities": []
+    },
+    {
+      "text": "how old are you",
+      "intent": "QnA",
+      "entities": []
+    },
+    {
+      "text": "i am lost",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "latest customer data",
+      "intent": "LatestCustomer",
+      "entities": []
+    },
+    {
+      "text": "latest customer info",
+      "intent": "LatestCustomer",
+      "entities": []
+    },
+    {
+      "text": "my customer list",
+      "intent": "Customers",
+      "entities": []
+    },
+    {
+      "text": "my customers",
+      "intent": "Customers",
+      "entities": []
+    },
+    {
+      "text": "my list of customers",
+      "intent": "Customers",
+      "entities": []
+    },
+    {
+      "text": "need help",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "see you later",
+      "intent": "Goodbye",
+      "entities": []
+    },
+    {
+      "text": "talk to you later",
+      "intent": "Goodbye",
+      "entities": []
+    },
+    {
+      "text": "what is the meaning of life?",
+      "intent": "QnA",
+      "entities": []
+    },
+    {
+      "text": "what is you gender",
+      "intent": "QnA",
+      "entities": []
+    },
+    {
+      "text": "what is your birthday",
+      "intent": "QnA",
+      "entities": []
+    },
+    {
+      "text": "who are my customers?",
+      "intent": "Customers",
+      "entities": []
+    },
+    {
+      "text": "who are you",
+      "intent": "QnA",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "name": "TailwindLuis",
+  "desc": "",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [],
+  "settings": []
+}
