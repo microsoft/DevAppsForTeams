@@ -38,14 +38,23 @@ Start by creating a self-signed SSL certificate and custom host name that will r
 
 #### Configure host name
 
-1. In the code editor start as administrator, open your `hosts` file (located in `c:\windows\system32\drivers\etc\hosts` in Windows and in `/etc/hosts`) and append to it: `127.0.0.1    devappsforteams.local`, replacing `devappsforteams.local` with the FQDN you chose in the previous steps
+1. In a code editor start as administrator, open your `hosts` file based on your target operating system:
+
+    **Windows:** `c:\windows\system32\drivers\etc\hosts`
+
+    **Mac:** `/etc/hosts`
+    
+    Add your FQDN as shown next: `127.0.0.1    devappsforteams.local`
+    
+    Make sure that you replace `devappsforteams.local` with the FQDN you chose in the previous steps.
+
 1. Save your changes
 
 #### Configure certificate and host name with the web app
 
 1. In the `CustomerOrdersApp` folder, create a new folder named `.cert`
 1. Copy the generated `cert.crt` and `cert.key` files to `CustomerOrdersApp/.cert`
-1. In the code editor, open the `CustomerOrdersApp/server.js` file and on line 16, update the value of the `domain` const to match your FQDN
+1. In the code editor, open the `CustomerOrdersApp/server.js` file and on line 16, update the value of the `domain` const to match your FQDN.
 
 ### Deploy Azure AD configuration
 
