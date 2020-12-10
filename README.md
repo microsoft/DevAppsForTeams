@@ -9,22 +9,24 @@
 
 ## Setup
 
-Following instructions are meant to help you run the project locally on your computer. If you want to deploy it to Azure, you will need to adjust the URL of where the web app is hosted to match the URL of your web app in Azure.
+The following instructions will help you get the project running locally on your computer. If you want to deploy it to Azure, you will need to adjust the URL of where the web app is hosted to match the URL of your web app in Azure.
 
 ### Set up SSL and a host name
 
-Start with setting up a self-signed SSL certificate and creating a custom host name that will resolve to your computer. This is necessary, since the free version of ngrok allows opening only one tunnel. If you have a paid version of ngrok, you can skip this section and use the URL of your ngrok tunnel.
+Start by creating a self-signed SSL certificate and custom host name that will resolve to your computer. 
+
+**NOTE:** ngrok provides a way to run a local server using SSL and access it externally. However, since 2 tunnels are needed for this app (one for the app itself and one for the bot) you would need a paid version of ngrok. More details can be found at https://ngrok.com. If you have a paid version of ngrok, you can skip this section and use the URL of your ngrok tunnel.
 
 #### Create certificate authority and a certificate
 
 1. Open terminal
-1. Create certificate authority by executing:
+1. Create a certificate authority by executing:
 
     ```sh
     npx mkcert create-ca --organization "MyOrg" --validity 825
     ```
 
-1. Create certificate by executing:
+1. Create a certificate by executing:
 
     ```sh
     npx mkcert create-cert --ca-key "ca.key" --ca-cert "ca.crt" --validity 825 --domains "devappsforteams.local"
@@ -32,11 +34,11 @@ Start with setting up a self-signed SSL certificate and creating a custom host n
 
     As the domain name, you can specify any valid fully-qualified domain name (FQDN) you want. In the next step, you will configure your computer to resolve this FQDN to your local machine.
 
-1. Follow the steps in [this article](https://bob1german.com/2020/10/17/setting-up-ssl-for-tabs-in-the-teams-toolkit-for-visual-studio-code/) to add the generated certificate authority to your cert store
+1. Follow the steps in [this article](https://bob1german.com/2020/10/17/setting-up-ssl-for-tabs-in-the-teams-toolkit-for-visual-studio-code/) to add the generated certificate authority to your cert store.
 
 #### Configure host name
 
-1. In the code editor starte as administrator, open your `hosts` file (located in `c:\windows\system32\drivers\etc\hosts` in Windows and in `/etc/hosts`) and append to it: `127.0.0.1    devappsforteams.local`, replacing `devappsforteams.local` with the FQDN you chose in the previous steps
+1. In the code editor start as administrator, open your `hosts` file (located in `c:\windows\system32\drivers\etc\hosts` in Windows and in `/etc/hosts`) and append to it: `127.0.0.1    devappsforteams.local`, replacing `devappsforteams.local` with the FQDN you chose in the previous steps
 1. Save your changes
 
 #### Configure certificate and host name with the web app
