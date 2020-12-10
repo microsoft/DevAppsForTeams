@@ -44,9 +44,9 @@ Start by creating a self-signed SSL certificate and custom host name that will r
 
     **Mac:** `/etc/hosts`
     
-    Add your FQDN as shown next: `127.0.0.1    devappsforteams.local`
+    Append your FQDN as shown next: `127.0.0.1    devappsforteams.local`
     
-    Make sure that you replace `devappsforteams.local` with the FQDN you chose in the previous steps.
+    **IMPORTANT:** Make sure that you replace `devappsforteams.local` with the FQDN you chose in the previous steps.
 
 1. Save your changes
 
