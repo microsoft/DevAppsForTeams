@@ -61,7 +61,7 @@ Start by creating a self-signed SSL certificate and custom host name that will r
 1. In the code editor, open the `setup/setup.ps1` file
 1. Change the value of the `$domain` variable to the FQDN you chose previously followed by `:8443`, eg. `devappsforteams.local:8443`
 1. Start PowerShell
-1. Change the working directory to `setup`
+1. Change the working directory to `setup` (a folder located in this repository)
 1. Login to Azure:
 
     ```powershell
@@ -75,9 +75,9 @@ Start by creating a self-signed SSL certificate and custom host name that will r
     ```
 
     **Tip:**
-    If the setup script fails with an `Request_ResourceNotFound` error, execute the script again. Sometimes creating the Azure AD app takes longer than expected and when the script continues, the app isn't fully provisioned yet. Running the script again, will update the previously created app with the missing values.
+    If the setup script fails with an `Request_ResourceNotFound` error, execute the script again. Sometimes creating the Azure AD app takes longer than expected and when the script continues, the app isn't fully provisioned yet. Running the script again will update the previously created app with the missing values.
 
-1. Take note of the `AppId`, `AppPassword` and `AppUri` output by the setup script
+1. Take note of the `AppId`, `AppPassword` and `AppUri` output by the setup script. Make sure that you save these values before continuing.
 
 ### Configure the web app
 
