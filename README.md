@@ -36,7 +36,7 @@ Start with setting up a self-signed SSL certificate and creating a custom host n
 
 #### Configure host name
 
-1. In the code editor started as administrator, open your `hosts` file (located in `c:\windows\system32\drivers\etc\hosts` in Windows and in `/etc/hosts`) and append to it: `127.0.0.1    devappsforteams.local`, replacing `devappsforteams.local` with the FQDN you chose in the previous steps
+1. In the code editor starte as administrator, open your `hosts` file (located in `c:\windows\system32\drivers\etc\hosts` in Windows and in `/etc/hosts`) and append to it: `127.0.0.1    devappsforteams.local`, replacing `devappsforteams.local` with the FQDN you chose in the previous steps
 1. Save your changes
 
 #### Configure certificate and host name with the web app
