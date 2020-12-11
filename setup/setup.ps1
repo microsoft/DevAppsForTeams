@@ -1,12 +1,16 @@
 $appName = "Learn Together CRM"
-$domain = "localhost:4000"
-$protocol = "http://"
+$domain = "devappsforteams.local:8443"
+$protocol = "https://"
 
 # Authentication
 
 # create the AAD app
 "Creating AAD app $appName..."
 $tabApp = az ad app create --display-name $appName --available-to-other-tenants $true --reply-urls "https://$domain" --oauth2-allow-implicit-flow --required-resource-accesses @tab-app-manifest.json | ConvertFrom-Json
+
+# wait for the AAD app to be created or the script will fail later on
+"Waiting for the app to be fully provisioned..."
+Start-Sleep -Seconds 10
 
 # add current user as app owner
 "Adding current user as app owner..."
@@ -37,14 +41,7 @@ $tabAppSecret = az ad app credential reset --id $tabApp.appId --credential-descr
 
 ""
 "AppId=$($tabApp.appId)"
-"AppSecret=$($tabAppSecret.password)"
+"AppPassword=$($tabAppSecret.password)"
 "AppUri=api://$domain/$($tabApp.appId)"
 
 Write-Host DONE -ForegroundColor Green
-
-# $tabApp.appId
-# $tabApp.objectId
-
-# PATCH https://graph.microsoft.com/v1.0/myorganization/applications/7fbcc564-db61-443e-92eb-65024d88c6a
-
-# {"id":"7fbcc564-db61-443e-92eb-65024d88c6a7","spa":{"redirectUris":["https://localhost:3000"]},"publicClient":{"redirectUris":[]},"web":{"redirectUris":[],"implicitGrantSettings":{"enableAccessTokenIssuance":true,"enableIdTokenIssuance":true}}}
