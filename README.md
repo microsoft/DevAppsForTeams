@@ -1,5 +1,16 @@
 # Developing Apps for Teams
 
+This sample application demonstrates how to integrate a Web application into Teams. It supports the following features:
+
+- [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/) and [Microsoft Authentication Library](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) (MSAL) when the app runs outside of Teams
+- [Single Single-On](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso) when the app runs inside of Teams
+- Use of the [Teams JavaScript client SDK](https://docs.microsoft.com/en-us/javascript/api/overview/msteams-client?view=msteams-client-js-latest)
+- Teams app [custom tab](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/what-are-tabs)
+- [Bots](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots) that leverage [LUIS and QnA Maker Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services#language-apis)
+- App to bot communication
+
+**NOTE:** This is an early version of the application that will continue to be enhanced and be updated over time.
+
 ## Prerequisites
 
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
@@ -84,6 +95,7 @@ Start by creating a self-signed SSL certificate and custom host name that will r
 1. In the code editor open the `CustomerOrdersApp/.env sample` file
 1. Change the value of the `AppId` and `AppPassword` properties to match the values returned by the setup script in the previous step
 1. Save the file as `CustomerOrdersApp/.env`
+1. Open `CustomerOrdersApp/src/app/core/core.module.ts` and change the `clientId` value shown to your the `AppId` value that you saved in the previous section.
 
 ### Start the web app
 
@@ -115,7 +127,7 @@ TBD: We need to setup the bot here because we need to include its ID in the mani
 
 ### Update Teams app manifest
 
-1. In the code editor open the `Teams/manifest sample.json` file
+1. In the code editor make a copy of the `Teams/manifest sample.json` file and name the copy `manifest.json` (ensure you add the copy to the `Teams` folder).
 1. In the `developer` property, change the value of the `websiteUrl`, `privacyUrl` and `termsOfUseUrl` properties to match the URL of your web app, eg. `https://devappsforteams.local:8443`
 1. In the `configurableTabs` property, update the value of the `configurationUrl` property to match your ngrok tunnel followed by `config`, eg. `https://devappsforteams.local:8443/config`
 1. In the `staticTabs` property, update the value of the `contentUrl` and `websiteUrl` properties to match the URL of your ngrok tunnel followed by `tab`, eg. `https://devappsforteams.local:8443/tab`
