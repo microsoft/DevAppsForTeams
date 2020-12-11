@@ -9,7 +9,7 @@ This sample application demonstrates how to integrate a Web application into Tea
 - [Bots](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots) that leverage [LUIS and QnA Maker Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services#language-apis)
 - App to bot communication
 
-**NOTE:** This is an early version of the application that will continue to be enhanced and be updated over time.
+**NOTE:** This application is a work in progress that will continue to be enhanced and updated over time.
 
 ## Prerequisites
 
