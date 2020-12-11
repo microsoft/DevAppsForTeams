@@ -26,7 +26,7 @@ The following instructions will help you get the project running locally on your
 
 Start by creating a self-signed SSL certificate and custom host name that will resolve to your computer. 
 
-**NOTE:** ngrok provides a way to run a local server using SSL and access it externally. However, since 2 tunnels are needed for this app (one for the app itself and one for the bot) you would need a paid version of ngrok. More details can be found at https://ngrok.com. If you have a paid version of ngrok, you can skip this section and use the URL of your ngrok tunnel.
+**NOTE:** Although ngrok provides a way to run a local server using SSL and access it externally, we won't be using it here since 2 tunnels are needed for this app (one for the app itself and one for the bot). As a result you would need a paid version of [ngrok](https://ngrok.com). While we won't be using ngrok here to run the app (due to the paid requirement), if you do have a paid version of ngrok you can skip this section and use the URL of your ngrok tunnels instead.
 
 #### Create certificate authority and a certificate
 
