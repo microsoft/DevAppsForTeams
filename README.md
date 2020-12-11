@@ -127,7 +127,8 @@ TBD: We need to setup the bot here because we need to include its ID in the mani
 
 ### Update Teams app manifest
 
-1. In the code editor make a copy of the `Teams/manifest sample.json` file and name the copy `manifest.json` (ensure you add the copy to the `Teams` folder).
+1. Make a copy of the `Teams/manifest sample.json` file and name it `manifest.json`. Ensure that you add `manifest.json` to the `Teams` folder.
+1. Open `manifest.json` in a code editor.
 1. In the `developer` property, change the value of the `websiteUrl`, `privacyUrl` and `termsOfUseUrl` properties to match the URL of your web app, eg. `https://devappsforteams.local:8443`
 1. In the `configurableTabs` property, update the value of the `configurationUrl` property to match your ngrok tunnel followed by `config`, eg. `https://devappsforteams.local:8443/config`
 1. In the `staticTabs` property, update the value of the `contentUrl` and `websiteUrl` properties to match the URL of your ngrok tunnel followed by `tab`, eg. `https://devappsforteams.local:8443/tab`
