@@ -291,6 +291,13 @@ Go to [Ngrok website](https://www.ngrok.com) and install ngrok.
 
 2. Copy your ngrok URL `https://{subdomain}.ngrok.io`; you will need it in the next step. Make sure you copy the https and not the http URL.
 
+3. The CustomerOrdersApp calls a web service in the bot to ask it to notify users of changes. To allow this to work, return to the CustomerOrdersApp/src/environments/environment.ts and change the `botApiUrl` property value to the ngrok URL of your bot (without a `/api/messages` or even a trailing `/`). Don't forget to rebuild and restart the Customer Orders App
+
+~~~bash
+npm run build
+npm run start
+~~~
+
 #### 2.3. Create Azure Bot Channels Registration
 
 1. Go to [Azure Portal](https://portal.azure.com) and select `+ Create a resource`. Search for `Bot Channels Registration` and choose `Create`. Fill the fields as follows and select `Create`:
@@ -403,6 +410,9 @@ Now, your project is running on https://localhost:3978 which you've been tunneli
       "How old are you",
 
       ...
+
+
+
 
 If you need any reference for Teams app manifest, you may review **manifest sample.json** under the **Teams** project folder.
 
