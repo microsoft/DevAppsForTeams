@@ -8,10 +8,10 @@ To build and run the solution in a development environment, you will need:
 
 - [Microsoft 365 tenant](https://developer.microsoft.com/microsoft-365/dev-program/?WT.mc_id=m365-11189-cxa)
 - [Microsoft Azure](https://portal.azure.com/?WT.mc_id=m365-11189-cxa) subscription that is associated with the same Azure AD tenant as the M365 tenant (see section 1.2 below for details)
-- [Node.js LTS](https://nodejs.org/?WT.mc_id=m365-11189-cxa)
+- [Node.js LTS](https://nodejs.org)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli/?WT.mc_id=m365-11189-cxa)
 - [PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1&WT.mc_id=m365-11189-cxa)
-- [ngrok](https://www.ngrok.com/?WT.mc_id=m365-11189-cxa) or equivalent tunneling solution for testing the Bot
+- [ngrok](https://www.ngrok.com) or equivalent tunneling solution for testing the Bot
 
 ## Setup Steps
 
@@ -24,7 +24,7 @@ First, we'll set up the Customer Orders App, which is a single-page application 
 
 Start by creating a self-signed SSL certificate and custom host name that will resolve to your computer. In these instructions, we use the host name _devappsforteams.local_; if you choose something different, please substitute your name for that one in the steps that follow. Note that your host name must be a valid DNS name (FQDN).
 
-**NOTE:** Although ngrok provides a way to run a local server using SSL and access it externally, we won't be using it here since 2 tunnels would be needed for this app (one for the app itself and one for the bot). As a result you would need a paid version of [ngrok](https://ngrok.com/?WT.mc_id=m365-11189-cxa). While we won't be using ngrok here to run the app (due to the paid requirement), if you do have a paid version of ngrok you can skip this section and use the URL of your ngrok tunnels instead.
+**NOTE:** Although ngrok provides a way to run a local server using SSL and access it externally, we won't be using it here since 2 tunnels would be needed for this app (one for the app itself and one for the bot). As a result you would need a paid version of [ngrok](https://ngrok.com). While we won't be using ngrok here to run the app (due to the paid requirement), if you do have a paid version of ngrok you can skip this section and use the URL of your ngrok tunnels instead.
 
 ##### 1.1.1 Create certificate authority and a certificate
 
@@ -75,7 +75,7 @@ domain = 'devappsforteams.local';
 
 ![Tenant ID must match](./docs/images/TenantIDMatch.png)
 
-> NOTE: If the Azure subscription you plan to use is associated with a different tenant ID, you will need to change it so both the Azure services and M365 are using the same Azure AD instance. Note that this change is likely to break other solutions already deployed in the Azure subscription, so if there are other solutions already in use, you'll want to obtain another Azure subscription and associate it with your M365 tenant. For detailed instructions, follow [this blog article](https://laurakokkarinen.com/how-to-use-the-complimentary-azure-credits-in-a-microsoft-365-developer-tenant-step-by-step/?WT.mc_id=m365-11189-cxa) from MVP [Laura Kokkarinen](https://twitter.com/laurakokkarinen/?WT.mc_id=m365-11189-cxa). 
+> NOTE: If the Azure subscription you plan to use is associated with a different tenant ID, you will need to change it so both the Azure services and M365 are using the same Azure AD instance. Note that this change is likely to break other solutions already deployed in the Azure subscription, so if there are other solutions already in use, you'll want to obtain another Azure subscription and associate it with your M365 tenant. For detailed instructions, follow [this blog article](https://laurakokkarinen.com/how-to-use-the-complimentary-azure-credits-in-a-microsoft-365-developer-tenant-step-by-step) from MVP [Laura Kokkarinen](https://twitter.com/laurakokkarinen). 
 
 1. In the code editor, open the `setup/setup.ps1` file
 1. Change the value of the `$domain` variable to the FQDN you chose previously followed by `:8443`, eg. `devappsforteams.local:8443`
@@ -161,7 +161,7 @@ Two Azure Cognitive Services, LUIS (Language Understanding Intelligent Services)
 
 ![Import the LUIS model](./docs/images/LUIS-1.png)
 
-[Import](https://cda.ms/1RB/?WT.mc_id=m365-11189-cxa) `'TailwindLuis.json'` file available under **services > CognitiveServices** folder. Give your model a name and click "Done" to import the model.
+[Import](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-manage-versions?WT.mc_id=m365-11189-cxa#import-version) `'TailwindLuis.json'` file available under **services > CognitiveServices** folder. Give your model a name and click "Done" to import the model.
 
 ![Import the LUIS model](./docs/images/LUIS-2.png)
 
@@ -274,7 +274,7 @@ Add the values to the `\teams\.env` file:
 Your app will run from a localhost server. You will need to setup Ngrok in order to tunnel from the Teams client to localhost. 
 
 ##### 2.3.1 Install Ngrok
-Go to [Ngrok website](https://www.ngrok.com/?WT.mc_id=m365-11189-cxa) and install ngrok.
+Go to [Ngrok website](https://www.ngrok.com) and install ngrok.
 
 ##### 2.3.2 Run Ngrok
 
@@ -355,7 +355,7 @@ Now, your project is running on https://localhost:3978 which you've been tunneli
 
 ### 2.5. Test your project on Microsoft Teams
 
-1. Go to [Microsoft Teams](https://teams.microsoft.com/?WT.mc_id=m365-11189-cxa) and login with your [M365 developer account](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant/?WT.mc_id=m365-11189-cxa).
+1. Go to [Microsoft Teams](https://teams.microsoft.com) and login with your [M365 developer account](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant/?WT.mc_id=m365-11189-cxa).
 
 1. Within Teams, click "Chat" in the left sidebar 1️⃣, then click the New Message button 2️⃣. Paste the Bot ID (Bot's App ID obtained in section 2.3) into the To: box 3️⃣. Teams should find the bot name and show it in a pop-up 4️⃣; click the popup to begin conversing with the Bot. Type a test message into the compose area 5️⃣ and click Send.
 
