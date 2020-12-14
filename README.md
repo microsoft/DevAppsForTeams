@@ -212,8 +212,9 @@ Then switch to the Setup tab 1️⃣ and save the `App ID` 2️⃣.
     ```
     LuisAppId= <App-ID>
     LuisAPIKey= <Primary-Key>
-    LuisAPIHostName= <Endpoint-URL>
+    LuisAPIHostName=<Fully qualified domain name for hostname from Endpoint-URL>
     ```
+NOTE: The LuisAPIHostName should be only the 
 
 #### 2.2 Set up QnA Maker
 
@@ -273,7 +274,7 @@ Add the values to the `\teams\.env` file:
     ```
     QnAKnowledgebaseId= <KnowledgeBase-ID>
     QnAEndpointKey= <Authorization: EndpointKey>
-    QnAEndpointHostName= <Host>
+    QnAEndpointUrl= <Endpoint URL>
     ```
  
 #### 2.3 Configure Ngrok
@@ -410,14 +411,6 @@ Now, your project is running on https://localhost:3978 which you've been tunneli
       "How old are you",
 
       ...
-
-
-
-
-If you need any reference for Teams app manifest, you may review **manifest sample.json** under the **Teams** project folder.
-
-
-
 
 ### 3. Build and deploy the Teams app
 #### 3.1 Update Teams app manifest

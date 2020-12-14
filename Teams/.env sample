@@ -3,11 +3,10 @@ BotPassword=<your bot Client-Secret-Value>
 CrmUrl=http://localhost
 CrmPort=8080
 
-
 QnAKnowledgebaseId=<your QnA Maker id>
 QnAEndpointKey= <your QnA Maker Endpoint key>
-QnAEndpointHostName=<your QnA Maker Hostname>
+QnAEndpointUrl=<your QnA Maker endpoint URL>
 
 LuisAppId=<your Luis app id>
 LuisAPIKey=<your Luis api key>
-LuisAPIHostName=<your Luis Endpoint URL>
+LuisAPIHostName=<your Luis Endpoint hostname such as myluis.cognitiveservices.azure.com>

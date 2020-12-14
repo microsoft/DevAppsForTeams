@@ -32,7 +32,7 @@ Rename `.env sample` file as `.env`.
     ```
     LuisAppId= <App-ID>
     LuisAPIKey= <Primary-Key>
-    LuisAPIHostName= <Endpoint-URL>
+    LuisAPIHostName= <Fully qualified hostname from endpoint URL>
     ```
 
 #### Create QnA knowledge base
@@ -71,7 +71,7 @@ Rename `.env sample` file as `.env`.
     ```
     QnAKnowledgebaseId= <KnowledgeBase-ID>
     QnAEndpointKey= <Authorization: EndpointKey>
-    QnAEndpointHostName= <Host>
+    QnAEndpointUrl= <Endpoint URL>
     ```
  
 ### 2. Configure Ngrok
