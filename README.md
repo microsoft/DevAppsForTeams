@@ -2,11 +2,11 @@
 
 This sample application demonstrates how to integrate a Web application into Teams. It supports the following features:
 
-- [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/) and [Microsoft Authentication Library](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) (MSAL) when the app runs outside of Teams
-- [Single Single-On](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso) when the app runs inside of Teams
-- Use of the [Teams JavaScript client SDK](https://docs.microsoft.com/en-us/javascript/api/overview/msteams-client?view=msteams-client-js-latest)
-- Teams app [custom tab](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/what-are-tabs)
-- [Bots](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots) that leverage [LUIS and QnA Maker Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services#language-apis)
+- [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/?WT.mc_id=m365-11189-cxa) and [Microsoft Authentication Library](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview/?WT.mc_id=m365-11189-cxa) (MSAL) when the app runs outside of Teams
+- [Single Single-On](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso/?WT.mc_id=m365-11189-cxa) when the app runs inside of Teams
+- Use of the [Teams JavaScript client SDK](https://docs.microsoft.com/en-us/javascript/api/overview/msteams-client?view=msteams-client-js-latest/?WT.mc_id=m365-11189-cxa)
+- Teams app [custom tab](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/what-are-tabs/?WT.mc_id=m365-11189-cxa)
+- [Bots](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots/?WT.mc_id=m365-11189-cxa) that leverage [LUIS and QnA Maker Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services/?WT.mc_id=m365-11189-cxa#language-apis)
 - App to bot communication
 
 **NOTE:** This application is a work in progress that will continue to be enhanced and updated over time. Consider forking this repository if you want to easily return to this version.
@@ -15,12 +15,12 @@ This sample application demonstrates how to integrate a Web application into Tea
 
 To build and run the solution in a development environment, you will need:
 
-- [Microsoft 365 tenant](https://developer.microsoft.com/microsoft-365/dev-program)
-- [Microsoft Azure](https://portal.azure.com/) subscription that is associated with the same Azure AD tenant as the M365 tenant (see section 1.2 below for details)
-- [Node.js LTS](https://nodejs.org/)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-- [PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1)
-- [ngrok](https://www.ngrok.com) or equivalent tunneling solution for testing the Bot
+- [Microsoft 365 tenant](https://developer.microsoft.com/microsoft-365/dev-program/?WT.mc_id=m365-11189-cxa)
+- [Microsoft Azure](https://portal.azure.com/?WT.mc_id=m365-11189-cxa) subscription that is associated with the same Azure AD tenant as the M365 tenant (see section 1.2 below for details)
+- [Node.js LTS](https://nodejs.org/?WT.mc_id=m365-11189-cxa)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli/?WT.mc_id=m365-11189-cxa)
+- [PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1&WT.mc_id=m365-11189-cxa)
+- [ngrok](https://www.ngrok.com/?WT.mc_id=m365-11189-cxa) or equivalent tunneling solution for testing the Bot
 
 ## Setup
 
@@ -33,7 +33,7 @@ First, we'll set up the Customer Orders App, which is a single-page application 
 
 Start by creating a self-signed SSL certificate and custom host name that will resolve to your computer. In these instructions, we use the host name _devappsforteams.local_; if you choose something different, please substitute your name for that one in the steps that follow. Note that your host name must be a valid DNS name (FQDN).
 
-**NOTE:** Although ngrok provides a way to run a local server using SSL and access it externally, we won't be using it here since 2 tunnels would be needed for this app (one for the app itself and one for the bot). As a result you would need a paid version of [ngrok](https://ngrok.com). While we won't be using ngrok here to run the app (due to the paid requirement), if you do have a paid version of ngrok you can skip this section and use the URL of your ngrok tunnels instead.
+**NOTE:** Although ngrok provides a way to run a local server using SSL and access it externally, we won't be using it here since 2 tunnels would be needed for this app (one for the app itself and one for the bot). As a result you would need a paid version of [ngrok](https://ngrok.com/?WT.mc_id=m365-11189-cxa). While we won't be using ngrok here to run the app (due to the paid requirement), if you do have a paid version of ngrok you can skip this section and use the URL of your ngrok tunnels instead.
 
 ##### 1.1.1 Create certificate authority and a certificate
 
@@ -52,7 +52,7 @@ Start by creating a self-signed SSL certificate and custom host name that will r
 
     As the domain name, you can specify the DNS host name (FQDN) you chose to use throughout the project. In the next step, you will configure your computer to resolve this hostname to your local machine.
 
-1. Follow the steps in [this article](https://bob1german.com/2020/10/17/setting-up-ssl-for-tabs-in-the-teams-toolkit-for-visual-studio-code/) to add the generated certificate authority to your cert store.
+1. Follow the steps in [this article](https://bob1german.com/2020/10/17/setting-up-ssl-for-tabs-in-the-teams-toolkit-for-visual-studio-code/?WT.mc_id=m365-11189-cxa) to add the generated certificate authority to your cert store.
 
 ##### 1.1.2 Configure a host name for the tab and SSO web service
 
@@ -80,11 +80,11 @@ domain = 'devappsforteams.local';
 
 #### 1.2 Deploy Azure AD configuration
 
-1. Obtain your Microsoft 365 tenant ID. This indicates the Azure AD instance that is used by your Microsoft 365 tenant. To obtain the Microsoft 365 tenant ID, browse to [https://admin.microsoft.com](https://admin.microsoft.com), log in with your development M365 account, and then browse to the Azure Active Directory option on the left. The Tenant ID on the overview page contains the tenant ID you need to use in your `az login` command.
+1. Obtain your Microsoft 365 tenant ID. This indicates the Azure AD instance that is used by your Microsoft 365 tenant. To obtain the Microsoft 365 tenant ID, browse to [https://admin.microsoft.com](https://admin.microsoft.com/?WT.mc_id=m365-11189-cxa), log in with your development M365 account, and then browse to the Azure Active Directory option on the left. The Tenant ID on the overview page contains the tenant ID you need to use in your `az login` command.
 
 ![Tenant ID must match](./docs/images/TenantIDMatch.png)
 
-> NOTE: If the Azure subscription you plan to use is associated with a different tenant ID, you will need to change it so both the Azure services and M365 are using the same Azure AD instance. Note that this change is likely to break other solutions already deployed in the Azure subscription, so if there are other solutions already in use, you'll want to obtain another Azure subscription and associate it with your M365 tenant. For detailed instructions, follow [this blog article](https://laurakokkarinen.com/how-to-use-the-complimentary-azure-credits-in-a-microsoft-365-developer-tenant-step-by-step/) from MVP [Laura Kokkarinen](https://twitter.com/laurakokkarinen). 
+> NOTE: If the Azure subscription you plan to use is associated with a different tenant ID, you will need to change it so both the Azure services and M365 are using the same Azure AD instance. Note that this change is likely to break other solutions already deployed in the Azure subscription, so if there are other solutions already in use, you'll want to obtain another Azure subscription and associate it with your M365 tenant. For detailed instructions, follow [this blog article](https://laurakokkarinen.com/how-to-use-the-complimentary-azure-credits-in-a-microsoft-365-developer-tenant-step-by-step/?WT.mc_id=m365-11189-cxa) from MVP [Laura Kokkarinen](https://twitter.com/laurakokkarinen/?WT.mc_id=m365-11189-cxa). 
 
 1. In the code editor, open the `setup/setup.ps1` file
 1. Change the value of the `$domain` variable to the FQDN you chose previously followed by `:8443`, eg. `devappsforteams.local:8443`
@@ -162,13 +162,13 @@ Two Azure Cognitive Services, LUIS (Language Understanding Intelligent Services)
 
 ##### 2.1.1 Set up LUIS model (Language Understanding Intelligent Service)
 
-1. Go to the [LUIS Portal](https://www.luis.ai/) and select `Login / Sign up`. Sign in with the same account used in Part 1 that has administrative rights to your Microsoft Azure subscription.
+1. Go to the [LUIS Portal](https://www.luis.ai/?WT.mc_id=m365-11189-cxa) and select `Login / Sign up`. Sign in with the same account used in Part 1 that has administrative rights to your Microsoft Azure subscription.
 
 2. Select the arrow on the right side of the `New app` button and choose `Import as JSON`.
 
 ![Import the LUIS model](./docs/images/LUIS-1.png)
 
-[Import](https://cda.ms/1RB) `'TailwindLuis.json'` file available under **services > CognitiveServices** folder. Give your model a name and click "Done" to import the model.
+[Import](https://cda.ms/1RB/?WT.mc_id=m365-11189-cxa) `'TailwindLuis.json'` file available under **services > CognitiveServices** folder. Give your model a name and click "Done" to import the model.
 
 ![Import the LUIS model](./docs/images/LUIS-2.png)
 
@@ -219,12 +219,12 @@ Then switch to the Setup tab 1️⃣ and save the `App ID` 2️⃣.
 
 ##### 2.2.1 Create QnA Maker Knowledge Base
 
-Go to [QnA Maker Portal](https://www.qnamaker.ai/) and select `Sign in` from top right. Sign in with your Azure admin account.
+Go to [QnA Maker Portal](https://www.qnamaker.ai/?WT.mc_id=m365-11189-cxa) and select `Sign in` from top right. Sign in with your Azure admin account.
 Click on `Create a knowledge base` on the top 1️⃣ and complete the steps shown on the screen 2️⃣.
 
 ![Create a Knowledge Base](./docs/images/QnA-1.png)
 
-* **STEP 1**:If you already have a QnA service, you can skip this step. If you don't already have a QnA service, you'll need to create one now, click `Create a QnA Service`. You will be directed to [Azure Portal](https://portal.azure.com) and login with the same account. Fill the fields as follows and select `Review + create`, then `Create`:
+* **STEP 1**:If you already have a QnA service, you can skip this step. If you don't already have a QnA service, you'll need to create one now, click `Create a QnA Service`. You will be directed to [Azure Portal](https://portal.azure.com/?WT.mc_id=m365-11189-cxa) and login with the same account. Fill the fields as follows and select `Review + create`, then `Create`:
 
     * **Subscription:** Choose your Azure Subscription
     * **Resource group:** Choose a resource group or create new
@@ -237,7 +237,7 @@ Click on `Create a knowledge base` on the top 1️⃣ and complete the steps sho
     * **App insights:** Enable
     * **App insights location:** Choose preferred location
     
-      Once your QnA service is created, return to [QnA Maker Portal](https://www.qnamaker.ai/) and continue with the steps.
+      Once your QnA service is created, return to [QnA Maker Portal](https://www.qnamaker.ai/?WT.mc_id=m365-11189-cxa) and continue with the steps.
 
 * **STEP 2:** Select `Refresh` and choose the fields as following:
     * **Microsoft Azure Directory ID:** Choose your tenant
@@ -281,7 +281,7 @@ Add the values to the `\teams\.env` file:
 Your app will run from a localhost server. You will need to setup Ngrok in order to tunnel from the Teams client to localhost. 
 
 ##### 2.3.1 Install Ngrok
-Go to [Ngrok website](https://www.ngrok.com) and install ngrok.
+Go to [Ngrok website](https://www.ngrok.com/?WT.mc_id=m365-11189-cxa) and install ngrok.
 
 ##### 2.3.2 Run Ngrok
 
@@ -293,7 +293,7 @@ Go to [Ngrok website](https://www.ngrok.com) and install ngrok.
 
 #### 2.3. Create Azure Bot Channels Registration
 
-1. Go to [Azure Portal](https://portal.azure.com) and select `+ Create a resource`. Search for `Bot Channels Registration` and choose `Create`. Fill the fields as follows and select `Create`:
+1. Go to [Azure Portal](https://portal.azure.com/?WT.mc_id=m365-11189-cxa) and select `+ Create a resource`. Search for `Bot Channels Registration` and choose `Create`. Fill the fields as follows and select `Create`:
 
     * **Bot handle:** Give a unique name to your bot (it must be unique across all of Microsoft Azure, so you may need to try a few options to find an available name)
     * **Subscription:** Choose your subscription
@@ -355,7 +355,7 @@ Now, your project is running on https://localhost:3978 which you've been tunneli
 
 ### 5. Test your project on Microsoft Teams
 
-1. Go to [Microsoft Teams](https://teams.microsoft.com) and login with your [M365 developer account](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant?WT.mc_id=m365-10863-aycabas).
+1. Go to [Microsoft Teams](https://teams.microsoft.com/?WT.mc_id=m365-11189-cxa) and login with your [M365 developer account](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant/?WT.mc_id=m365-11189-cxa).
 
 2. Select `...` button on the left hand side menu and search for `App Studio.` Install and open App Studio.
 
@@ -440,7 +440,7 @@ If you need any reference for Teams app manifest, you may review **manifest samp
 
 ### Deploy app to Teams
 
-1. In the web browser navigate to `https://teams.microsoft.com` and sign in with your dev account
+1. In the web browser navigate to (https://teams.microsoft.com)[https://teams.microsoft.com/?WT.mc_id=m365-11189-cxa] and sign in with your dev account
 1. From the left rail, select **Apps**
 1. From the menu, select **Upload a custom app** and in the submenu choose `Upload for <your-organization>`
 1. In the file dialog, select the generated `Teams/package/TailwindTraders.zip` file
@@ -453,20 +453,20 @@ TBD: add steps for trying out the bot
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit (https://cla.opensource.microsoft.com)[https://cla.opensource.microsoft.com/?WT.mc_id=m365-11189-cxa].
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
 provided by the bot. You will only need to do this once across all repos using our CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/?WT.mc_id=m365-11189-cxa).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/?WT.mc_id=m365-11189-cxa) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## Trademarks
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
 trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general/?WT.mc_id=m365-11189-cxa).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
