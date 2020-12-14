@@ -1,5 +1,5 @@
-BotId=<your bot app id>
-BotPassword=<your bot app password>
+BotId=<your bot Application ID>
+BotPassword=<your bot Client-Secret-Value>
 CrmUrl=http://localhost
 CrmPort=8080
 
@@ -10,4 +10,4 @@ QnAEndpointHostName=<your QnA Maker Hostname>
 
 LuisAppId=<your Luis app id>
 LuisAPIKey=<your Luis api key>
-LuisAPIHostName=<your Luis Hostname>
+LuisAPIHostName=<your Luis Endpoint URL>
