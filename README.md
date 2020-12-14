@@ -32,13 +32,13 @@ Key features include:
 
 From a technology standpoint, the application uses the following functionality:
 
-- [Angular](https://angular.io/?WT.mc_id=m365-11189-cxa) on the client-side and [Node](https://nodejs.org/?WT.mc_id=m365-11189-cxa) on the server-side.
 - [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/?WT.mc_id=m365-11189-cxa) and [Microsoft Authentication Library](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview/?WT.mc_id=m365-11189-cxa) (MSAL) when the app runs outside of Teams
 - [Single Single-On](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso/?WT.mc_id=m365-11189-cxa) when the app runs inside of Teams
 - The [Teams JavaScript client SDK](https://docs.microsoft.com/en-us/javascript/api/overview/msteams-client?view=msteams-client-js-latest/?WT.mc_id=m365-11189-cxa)
 - Teams app [custom tab](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/what-are-tabs/?WT.mc_id=m365-11189-cxa)
 - [Bot](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots/?WT.mc_id=m365-11189-cxa) that leverages [LUIS and QnA Maker Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services/?WT.mc_id=m365-11189-cxa#language-apis)
 - App to Bot communication
+- [Angular](https://angular.io/?WT.mc_id=m365-11189-cxa) on the client-side and [Node](https://nodejs.org/?WT.mc_id=m365-11189-cxa) on the server-side.
 
 
 
