@@ -161,6 +161,8 @@ domain = 'devappsforteams.local';
     - Change the `appId` property value to the `AppId` value that you saved in the previous section when setting up Azure Active Directory.
     - Later in the Bot steps you will also update the `botApiUrl` property value.
 
+1. Add yourself as a sales person by modifying CustomerOrdersApp/data/sales-people.json. Change the name of one of the sales people to your name - specifically your name exactly as it appears when you're using Teams in your development tenant. This will ensure you have some customers to test with when using the Bot portion of the solution.
+
 #### 1.4 Start the web app
 
 1. Open terminal
@@ -245,7 +247,7 @@ Then switch to the Setup tab 1️⃣ and save the `App ID` 2️⃣.
     ```
     LuisAppId= <App-ID>
     LuisAPIKey= <Primary-Key>
-    LuisAPIHostName= <Endpoint-URL>
+    LuisAPIHostName=<Fully qualified domain name for hostname from Endpoint-URL>
     ```
 
 #### 2.2 Set up QnA Maker
@@ -306,7 +308,7 @@ Add the values to the `\teams\.env` file:
     ```
     QnAKnowledgebaseId= <KnowledgeBase-ID>
     QnAEndpointKey= <Authorization: EndpointKey>
-    QnAEndpointHostName= <Host>
+    QnAEndpointUrl= <Endpoint URL>
     ```
  
 #### 2.3 Configure Ngrok
@@ -323,6 +325,13 @@ Go to [Ngrok website](https://www.ngrok.com/?WT.mc_id=m365-11189-cxa) and instal
     `ngrok http -host-header=rewrite 3978`
 
 2. Copy your ngrok URL `https://{subdomain}.ngrok.io`; you will need it in the next step. Make sure you copy the https and not the http URL.
+
+3. The CustomerOrdersApp calls a web service in the bot to ask it to notify users of changes. To allow this to work, return to the CustomerOrdersApp/src/environments/environment.ts and change the `botApiUrl` property value to the ngrok URL of your bot (without a `/api/messages` or even a trailing `/`). Don't forget to rebuild and restart the Customer Orders App
+
+~~~bash
+npm run build
+npm run start
+~~~
 
 #### 2.3. Create Azure Bot Channels Registration
 
@@ -384,48 +393,23 @@ Open your terminal in Visual Studio Code (`Ctrl+ Shift + '`) and type the follow
 3. Start your project:
     #### `npm start`
 
-Now, your project is running on https://localhost:3978 which you've been tunneling with ngrok.
+Now, your project is running on https://localhost:3978 which you've been tunneling with ngrok. To fully test the bot, ensure your Customer Orders App is still running as well (you'll need two terminal windows, plus one for ngrok).
 
-### 5. Test your project on Microsoft Teams
+### 2.5. Test your project on Microsoft Teams
 
 1. Go to [Microsoft Teams](https://teams.microsoft.com/?WT.mc_id=m365-11189-cxa) and login with your [M365 developer account](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant/?WT.mc_id=m365-11189-cxa).
 
-2. Select `...` button on the left hand side menu and search for `App Studio.` Install and open App Studio.
+1. Within Teams, click "Chat" in the left sidebar 1️⃣, then click the New Message button 2️⃣. Paste the Bot ID (Bot's App ID obtained in section 2.3) into the To: box 3️⃣. Teams should find the bot name and show it in a pop-up 4️⃣; click the popup to begin conversing with the Bot. Type a test message into the compose area 5️⃣ and click Send.
 
-3. Go to `Manifest Editor` and choose `+ Create a new app` on the left hand side menu.
+![Test your bot](./docs/images/BotChannel-6.png)
 
-4. Fill the `App details` fields as following:
-   * **Short name:** Give your app a short name
-   * **Full name:** Give your app a full name
-   * **App ID:** Click on `Generate` and your App ID will be generated 
-   * **Package Name:** com.microsoft.teams.app
-   * **Version:** 1.0.0
-   * **Short description:** Enter a short description for your app
-   * **Full description:** Enter a full description for your app
-   * **Developer/Company Name:** Enter a company or developer name
-   * **Website:** Copy your `https://{subdomain}.ngrok.io`
-   * **MPN ID:** Skip this part or provide your the Microsoft Partner Network ID
-   * **Privacy statement:** `https://{subdomain}.ngrok.io/privacy`
-   * **Terms of use:** `https://{subdomain}.ngrok.io/termsofuse`
+1. Try saying some of these things to your new Bot:
 
-5. Click on `Bots` tab on the left side under `Capabilities`. Choose `Set up` and complete the setup as following:
-    
-    * Choose **Existing bot**
-    * **Bot ID:** Select from my existing bots
-    * Find the bot you created in step 3.
-    * **Scope**: Personal 
-
-    and `Save`. Your `Bot ID`, `Password` and `Bot endpoint address` should automatically appear in this page.
-
-6. Go to `Domains and permissions` tab on the left hand side menu under `Finish` section. Enter your `Ngrok URL` in the **Enter a valid domain** and click on `Add`. 
-
-7. Select `Test and distribute` on the left hand side menu under `Finish` section and click on `Install`.
-
-8. Now, your bot is working on Microsoft Teams and it will appear on the personal chat. You can test your bot by chatting. Some of the example questions you may ask:
-     
       "Hello",
 
       "Get me my customer list",
+
+      "Gimme customers",
       
       "Who is the latest customer",
       
@@ -445,7 +429,7 @@ If you need any reference for Teams app manifest, you may review **manifest samp
 ### 3. Build and deploy the Teams app
 #### 3.1 Update Teams app manifest
 
-1. Make a copy of the `Teams/manifest sample.json` file and name it `manifest.json`. Ensure that you add `manifest.json` to the `Teams` folder.
+1. Make a copy of the `Manifest/manifest sample.json` file and name it `manifest.json`. Ensure that you add `manifest.json` to the `Teams` folder.
 1. Open `manifest.json` in a code editor.
 1. In the `developer` property, change the value of the `websiteUrl`, `privacyUrl` and `termsOfUseUrl` properties to match the URL of your web app, eg. `https://devappsforteams.local:8443`
 1. In the `configurableTabs` property, update the value of the `configurationUrl` property to match your ngrok tunnel followed by `config`, eg. `https://devappsforteams.local:8443/config`
@@ -473,7 +457,7 @@ If you need any reference for Teams app manifest, you may review **manifest samp
 
 ### Deploy app to Teams
 
-1. In the web browser navigate to [https://teams.microsoft.com](https://teams.microsoft.com/?WT.mc_id=m365-11189-cxa) and sign in with your dev account
+1. In the web browser navigate to `https://teams.microsoft.com` and sign in with your dev account
 1. From the left rail, select **Apps**
 1. From the menu, select **Upload a custom app** and in the submenu choose `Upload for <your-organization>`
 1. In the file dialog, select the generated `Teams/package/TailwindTraders.zip` file

@@ -25,7 +25,7 @@ class BotActivityHandler extends TeamsActivityHandler {
         const dispatchRecognizer = new LuisRecognizer({
             applicationId: process.env.LuisAppId,
             endpointKey: process.env.LuisAPIKey,
-            endpoint: `https://${ process.env.LuisAPIHostName }.cognitiveservices.azure.com`
+            endpoint: `https://${ process.env.LuisAPIHostName }`
         }, {
             includeAllIntents: true,
             includeInstanceData: true
@@ -34,7 +34,7 @@ class BotActivityHandler extends TeamsActivityHandler {
         const qnaMaker = new QnAMaker({
             knowledgeBaseId: process.env.QnAKnowledgebaseId,
             endpointKey: process.env.QnAEndpointKey,
-            host: process.env.QnAEndpointHostName
+            host: process.env.QnAEndpointUrl
         });
 
         this.dispatchRecognizer = dispatchRecognizer;
