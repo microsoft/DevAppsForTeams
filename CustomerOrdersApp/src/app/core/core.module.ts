@@ -2,6 +2,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 import { GrowlerModule } from './growler/growler.module';
 import { ModalModule } from './modal/modal.module';
@@ -32,8 +33,8 @@ const url = `${window.location.protocol}//${window.location.hostname}${port}`;
     CommonModule, RouterModule, HttpClientModule, GrowlerModule, ModalModule, OverlayModule,
     MsalModule.forRoot({
       auth: {
-        clientId: 'a1695d4d-84c0-4750-be9b-e049c9c68f19',
-        authority: 'https://login.microsoftonline.com/organizations',
+        clientId: environment.appId,
+        authority: environment.authority,
         redirectUri: url
       },
       cache: {
