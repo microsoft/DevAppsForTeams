@@ -2,6 +2,7 @@ BotId=<your bot Application ID>
 BotPassword=<your bot Client-Secret-Value>
 CrmUrl=http://localhost
 CrmPort=8080
+NODE_TLS_REJECT_UNAUTHORIZED=0
 
 QnAKnowledgebaseId=<your QnA Maker id>
 QnAEndpointKey= <your QnA Maker Endpoint key>
