@@ -33,3 +33,4 @@ cypress/screenshots/
 .env.production.local
 manifest.json
 .cert
+**/**/environment.ts

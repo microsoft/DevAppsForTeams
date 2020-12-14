@@ -95,8 +95,15 @@ Start by creating a self-signed SSL certificate and custom host name that will r
 1. In the code editor open the `CustomerOrdersApp/.env sample` file
 1. Change the value of the `AppId` and `AppPassword` properties to match the values returned by the setup script in the previous step
 1. Save the file as `CustomerOrdersApp/.env`
-1. Open `CustomerOrdersApp/src/app/core/core.module.ts` and change the `clientId` value shown to your the `AppId` value that you saved in the previous section.
-1. Open `CustomerOrdersApp/src/app/core/services/teams-messenger.service.ts` and change the `botApiUrl` to the FQDN you setup earlier in the `Configure certificate and host name with the web app` section. For example, if you used `devappsforteams.local` then the `botApiUrl` value would need to be `https://devappsforteams.local:3978`. Ensure that you add port `3978` on the end of the URL.
+1. Locate the `CustomerOrdersApp/src/environments/environment-sample.ts` and perform the following steps:
+
+    - Make a copy of the file and paste it in the same `environments` folder. 
+    - Rename the newly copied file to `environment.ts`.
+
+1. Open `environment.ts` and perform the following steps:
+
+    - Change the `clientId` property value to the `AppId` value that you saved in the previous section when setting up Azure Active Directory.
+    - Change the `botApiUrl` property value to the FQDN you setup earlier in the `Configure certificate and host name with the web app` section. For example, if you used `devappsforteams.local` then the `botApiUrl` value would need to be `https://devappsforteams.local:3978`. Ensure that you add port `:3978` at the end of the URL.
 
 ### Start the web app
 
