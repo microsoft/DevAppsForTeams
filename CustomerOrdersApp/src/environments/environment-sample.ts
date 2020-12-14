@@ -7,5 +7,5 @@ export const environment = {
     production: false,
     appId: '<Your AppId Here>',
     authority: 'https://login.microsoftonline.com/organizations',
-    botApiUrl: 'https://devappsforteams.local:3978'
+    botApiUrl: 'https://<yourdomain>.ngrok.io'
   };
