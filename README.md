@@ -125,8 +125,8 @@ domain = 'devappsforteams.local';
 
 1. Open `environment.ts` and perform the following steps:
 
-    - Change the `clientId` property value to the `AppId` value that you saved in the previous section when setting up Azure Active Directory.
-    - Change the `botApiUrl` property value to the FQDN you setup earlier in the `Configure certificate and host name with the web app` section. For example, if you used `devappsforteams.local` then the `botApiUrl` value would need to be `https://devappsforteams.local:3978`. Ensure that you add port `:3978` at the end of the URL.
+    - Change the `appId` property value to the `AppId` value that you saved in the previous section when setting up Azure Active Directory.
+    - Later in the Bot steps you will also update the `botApiUrl` property value.
 
 #### 1.4 Start the web app
 
