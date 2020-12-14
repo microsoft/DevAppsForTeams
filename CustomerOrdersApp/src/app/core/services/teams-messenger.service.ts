@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { CustomerChangeType } from 'src/app/shared/enums';
@@ -9,7 +10,7 @@ import { TeamsAuthService } from './teams-auth.service';
 @Injectable({ providedIn: 'root' })
 export class TeamsMessengerService {
 
-    botApiUrl = 'https://learntogetherbot.ngrok.io/';
+    botApiUrl = environment.botApiUrl;
 
     constructor(private http: HttpClient, private teamsAuthService: TeamsAuthService) { }
 
