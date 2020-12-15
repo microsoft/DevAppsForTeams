@@ -5,4 +5,4 @@ zip.addLocalFile('color.png');
 zip.addLocalFile('manifest.json');
 zip.addLocalFile('outline.png');
 
-zip.writeZip('package/TailwindTraders.zip');
+zip.writeZip('CustomerOrders.zip');

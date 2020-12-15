@@ -3,29 +3,29 @@
   "manifestVersion": "1.8",
   "version": "1.0.0",
   "id": "efe57f82-7f13-495b-ac41-e5a51384e4ba",
-  "packageName": "com.microsoft.teams.app",
+  "packageName": "com.microsoft.tailwind.customerorders",
   "developer": {
       "name": "Tailwind Traders",
-      "websiteUrl": "https://your-hostname-here.ngrok.io",
-      "privacyUrl": "https://your-hostname-here.ngrok.io",
-      "termsOfUseUrl": "https://your-hostname-here.ngrok.io"
+      "websiteUrl": "https://<CRM_HOST>:<CRM_PORT>",
+      "privacyUrl": "https://<CRM_HOST>:<CRM_PORT>",
+      "termsOfUseUrl": "https://<CRM_HOST>:<CRM_PORT>"
   },
   "icons": {
       "color": "color.png",
       "outline": "outline.png"
   },
   "name": {
-      "short": "Tailwind Traders CRM",
-      "full": "Tailwind Traders CRM"
+      "short": "Customer Orders",
+      "full": "Tailwind Traders Customer Orders"
   },
   "description": {
-      "short": "Tailwind Traders CRM Project",
-      "full": "Tailwind Traders CRM Project"
+      "short": "Sample application for Microsoft Teams",
+      "full": "Tailwind Traders Customer Orders and Bot"
   },
   "accentColor": "#FFFFFF",
   "configurableTabs": [
     {
-      "configurationUrl": "https://learntogethercrm.ngrok.io/config",
+      "configurationUrl": "https://<CRM_HOST>:<CRM_PORT>/config",
       "canUpdateConfiguration": true,
       "scopes": [
         "team",
@@ -37,8 +37,8 @@
     {
       "entityId": "index",
       "name": "Customer App",
-      "contentUrl": "https://learntogethercrm.ngrok.io/tab",
-      "websiteUrl": "https://learntogethercrm.ngrok.io/tab",
+      "contentUrl": "https://<CRM_HOST>:<CRM_PORT>/tab",
+      "websiteUrl": "https://<CRM_HOST>:<CRM_PORT>/tab",
       "scopes": [
         "personal"
       ]
@@ -46,7 +46,7 @@
   ],
   "bots": [
       {
-          "botId": "ee3cda2a-4e28-495b-bc89-54f3a1a9f66e",
+          "botId": "<BOT_ID>",
           "scopes": [
               "personal",
               "team",
@@ -61,13 +61,11 @@
       "messageTeamMembers"
   ],
   "validDomains": [
-      "learntogethercrm.ngrok.io",
-      "learntogetherbot.ngrok.io",
-      "login.microsoftonline.com",
-      "localhost"
+      "<CRM_HOST>:<CRM_PORT>",
+      "login.microsoftonline.com"
   ],
   "webApplicationInfo": {
-  "id": "a1695d4d-84c0-4750-be9b-e049c9c68f19",
-  "resource": "api://learntogethercrm.ngrok.io/a1695d4d-84c0-4750-be9b-e049c9c68f19"
+  "id": "<CRM_APPID>",
+  "resource": "api://<CRM_HOST>:<CRM_PORT>/<CRM_APPID>"
   }
 }
