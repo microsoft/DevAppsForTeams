@@ -53,6 +53,11 @@ app.get('/authend', (req, res) => {
     res.render('auth-end', { clientId: clientId });
 }); 
 
+/*
+ NOTE: The following APIs are left "open" to simplify the overall application demo and make it simple for the bot to call into the app to retrieve data.
+ In a real-world app you would of course need to apply security to the APIs.
+*/
+
 app.get('/api/customers/page/:skip/:top', (req, res) => {
     const topVal = req.params.top,
           skipVal = req.params.skip,
