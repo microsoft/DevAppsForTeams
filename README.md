@@ -1,6 +1,6 @@
 # Developing Apps for Teams
 
-This sample application demonstrates how to integrate a Web application into Teams. The app is a Line of Business application that can be accessed directly in the browser or used within Teams. 
+This sample application demonstrates how to integrate a Web application into Teams. The app is a Line of Business (LOB) application that can be accessed directly in the browser or from within Teams. 
 
 Key features include:
 
