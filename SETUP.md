@@ -373,34 +373,33 @@ Now, your project is running on https://localhost:3978 which you've been tunneli
       
       "Help",
 
-      "Can you breathe",
-
       "How old are you",
 
       ...
 
-If you need any reference for Teams app manifest, you may review **manifest sample.json** under the **Teams** project folder.
-
-
-
-
 ### 3. Build and deploy the Teams app
+
+> NOTE: The manifest.json file has a well documented schema! Check it out at [manifest schema](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema?WT.mc_id=m365-11189-cxa)
+
 #### 3.1 Update Teams app manifest
 
-1. Make a copy of the `Manifest/manifest sample.json` file and name it `manifest.json`. Ensure that you add `manifest.json` to the `Teams` folder.
-1. Open `manifest.json` in a code editor.
-1. In the `developer` property, change the value of the `websiteUrl`, `privacyUrl` and `termsOfUseUrl` properties to match the URL of your web app, eg. `https://devappsforteams.local:8443`
-1. In the `configurableTabs` property, update the value of the `configurationUrl` property to match your ngrok tunnel followed by `config`, eg. `https://devappsforteams.local:8443/config`
-1. In the `staticTabs` property, update the value of the `contentUrl` and `websiteUrl` properties to match the URL of your ngrok tunnel followed by `tab`, eg. `https://devappsforteams.local:8443/tab`
-1. In the `bots` property, update the value of the `botId` property to the ID of the bot you configured in the previous step, eg. `ee3cda2a-4e28-495b-bc89-54f3a1a9f66e`
-1. In the `validDomains` array, include your FQDN without the port number, eg. `devappsforteams.local`
-1. In the `webApplicationInfo` property, update the value of the `id` property to the `AppId` value returned by the setup script
-1. In the `webApplicationInfo` property, update the value of the `resource` property to the `AppUri` value returned by the setup script
+1. In the Manifest folder, make a copy of the `manifest sample.json` file and name it `manifest.json`. Open `manifest.json` in a code editor.
 
-### Create Teams app package
+2. Use the code editor's global replace feature to make the following substitutions:
 
-1. Open terminal
-1. Change the working directory to `Teams`
+| Token | Value |
+|---|---|
+| CRM_APP_ID | The app ID you registered for the CustomerOrdersApp in section 1.2  |
+| CRM_HOST | The hostname you selected for the CustomerOrdersApp such as devappsforteams.local |
+| CRM_PORT | The port you are using for the CustomerOrdersApp, by default 8443 |
+| BOT_ID | The Bot ID (the Bot's app ID) you created when you created the Azure Bot Channel registration in section 2.3 |
+
+3. Review the manifest; you can change the descriptions and other details if you wish
+
+#### 3.2 Create Teams app package
+
+1. Open a terminal
+1. Change the working directory to `Manifest`
 1. Restore project dependencies by executing:
 
     ```sh
@@ -410,16 +409,29 @@ If you need any reference for Teams app manifest, you may review **manifest samp
 1. Create Teams app package by executing:
 
     ```sh
-    npm run build:zip
+    npm run build
     ```
 
-### Deploy app to Teams
+#### 3.3 Deploy app to Teams
 
 1. In the web browser navigate to `https://teams.microsoft.com` and sign in with your dev account
-1. From the left rail, select **Apps**
-1. From the menu, select **Upload a custom app** and in the submenu choose `Upload for <your-organization>`
-1. In the file dialog, select the generated `Teams/package/TailwindTraders.zip` file
-1. In the list of apps, select the newly added app and in the app's dialog, choose **Add**
+
+2. From the left rail, select **Apps** 1️⃣. Open the **Upload a custom app** menu 2️⃣and in the submenu choose `Upload for <your-organization>` 3️⃣
+
+![Install app](./docs/images/Package-1.png)
+
+3. In the file dialog, select the generated `Manifest/CustomerOrders.zip` file
+
+4. In the list of apps, select the newly added app 
+
+![Install app](./docs/images/Package-2.png)
+
+5. in the app's dialog, choose **Add** 1️⃣ to install the solution as a personal app (just for you). To install the solution in a Team or Group Conversation, click the arrow next to **Add** 2️⃣ and then select team or conversation 2️⃣.
+
+![Install app](./docs/images/Package-3.png)
+
+A dialog box will be displayed where you can select the channel or group conversation where you'd like to install the app.
+
 1. After the app launched, from the tab-header bar choose **Customer App**. You should see the web app launched inside Teams
 
-TBD: add steps for trying out the bot
+NOTE: The bot stores a list of people and Teams channels to notify when the app is installed. Because the bot's database is stored in memory, as soon as you restart the bot it will forget and those notifications won't be sent unless you remove and re-add the app.
