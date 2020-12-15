@@ -25,7 +25,7 @@
   "accentColor": "#FFFFFF",
   "configurableTabs": [
     {
-      "configurationUrl": "https://<CRM_HOST>:<CRM_PORT>/config",
+      "configurationUrl": "https://<CRM_HOST>:<CRM_PORT>/teams-config",
       "canUpdateConfiguration": true,
       "scopes": [
         "team",

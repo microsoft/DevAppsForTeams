@@ -24,7 +24,7 @@ First, we'll set up the Customer Orders App, which is a single-page application 
 
 Start by creating a self-signed SSL certificate and custom host name that will resolve to your computer. In these instructions, we use the host name _devappsforteams.local_; if you choose something different, please substitute your name for that one in the steps that follow. Note that your host name must be a valid DNS name (FQDN).
 
-**NOTE:** Although ngrok provides a way to run a local server using SSL and access it externally, we won't be using it here since 2 tunnels would be needed for this app (one for the app itself and one for the bot). As a result you would need a paid version of [ngrok](https://ngrok.com). While we won't be using ngrok here to run the app (due to the paid requirement), if you do have a paid version of ngrok you can skip this section and use the URL of your ngrok tunnels instead.
+**NOTE:** Although ngrok provides a way to run a local server using SSL and access it externally, we won't be using it to serve the app since 2 tunnels would be needed (one for the app itself and one for the bot). As a result you would need a paid version of [ngrok](https://ngrok.com). While we won't be using ngrok here to run the app (due to the paid requirement), if you do have a paid version of ngrok you can skip this section and use the URL of your ngrok tunnel instead. You will use ngrok later in the setup process to get the bot up and running but the free version will work there.
 
 ##### 1.1.1 Create certificate authority and a certificate
 
@@ -63,7 +63,7 @@ Start by creating a self-signed SSL certificate and custom host name that will r
 
 1. In the `CustomerOrdersApp` folder, create a new folder named `.cert`
 1. Copy the generated `cert.crt` and `cert.key` files to a new folder `CustomerOrdersApp/.cert`
-1. In the code editor, open the `CustomerOrdersApp/server.js` file and on this line, update the value of the `domain` const to match your FQDN if you chose something different.
+1. In the code editor, open the `CustomerOrdersApp/server.js` file and update the value of the `domain` const (located toward the top of the file) to match your FQDN if you chose something different for your domain.
 
 ~~~javascript
 domain = 'devappsforteams.local';
@@ -109,9 +109,9 @@ domain = 'devappsforteams.local';
 1. In the code editor open the `CustomerOrdersApp/.env sample` file
 1. Change the value of the `AppId` and `AppPassword` properties to match the values returned by the setup script in the previous step
 1. Save the file as `CustomerOrdersApp/.env`
-1. Locate the `CustomerOrdersApp/src/environments/environment-sample.ts` and perform the following steps:
+1. Locate the `CustomerOrdersApp/src/environments/environment-sample.ts` file and perform the following tasks:
 
-    - Make a copy of the file and paste it in the same `environments` folder. 
+    - Make a copy of the file and add it in the same `environments` folder. 
     - Rename the newly copied file to `environment.ts`.
 
 1. Open `environment.ts` and perform the following steps:
@@ -284,7 +284,9 @@ Go to [Ngrok website](https://www.ngrok.com) and install ngrok.
 
 2. Copy your ngrok URL `https://{subdomain}.ngrok.io`; you will need it in the next step. Make sure you copy the https and not the http URL.
 
-3. The CustomerOrdersApp calls a web service in the bot to ask it to notify users of changes. To allow this to work, return to the CustomerOrdersApp/src/environments/environment.ts and change the `botApiUrl` property value to the ngrok URL of your bot (without a `/api/messages` or even a trailing `/`). Don't forget to rebuild and restart the Customer Orders App
+3. The CustomerOrdersApp calls a web service in the bot to ask it to notify users of changes. To allow this to work, return to the `CustomerOrdersApp/src/environments/environment.ts` and change the `botApiUrl` property value to the ngrok URL of your bot (without a `/api/messages` or even a trailing `/`). 
+
+4. Stop the Customer Orders web server you started earlier. Perform the following steps to rebuild and restart the server:
 
 ~~~bash
 npm run build
