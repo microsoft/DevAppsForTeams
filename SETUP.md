@@ -1,4 +1,4 @@
-## Application Setup Instructions
+# Application Setup Instructions
 
 To setup the application ensure that you have the following prerequisites installed and follow the `Setup Steps` section below.
 
@@ -149,11 +149,9 @@ domain = 'devappsforteams.local';
 
 *Bots* allow users to interact with your application through conversational text, interactive cards, and task modules. *Messaging extensions* allow users to interact with your application service through buttons and forms in the Microsoft Teams client. They can search or initiate actions, and can interact with users when they compose a message, use the command box, or use the context menu directly from a chat message.
 
-#### 2.1. Configure Cognitive Services
+#### 2.1 Set up LUIS model (Language Understanding Intelligent Service)
 
-Two Azure Cognitive Services, LUIS (Language Understanding Intelligent Services) and QnA Maker, are used to enable the bot to respond to natural language requests from users.
-
-##### 2.1.1 Set up LUIS model (Language Understanding Intelligent Service)
+Two Azure Cognitive Services, LUIS (Language Understanding Intelligent Services) and QnA Maker, are used to enable the bot to respond to natural language requests from users. In this section you'll set up the LUIS service which helps determine the user's intent and other details from the user's utterances.
 
 1. Go to the [LUIS Portal](https://www.luis.ai/?WT.mc_id=m365-11189-cxa) and select `Login / Sign up`. Sign in with the same account used in Part 1 that has administrative rights to your Microsoft Azure subscription.
 
@@ -210,6 +208,8 @@ Then switch to the Setup tab 1️⃣ and save the `App ID` 2️⃣.
 
 #### 2.2 Set up QnA Maker
 
+
+Two Azure Cognitive Services, LUIS (Language Understanding Intelligent Services) and QnA Maker, are used to enable the bot to respond to natural language requests from users. In this section you'll set up the QnA Maker service which uses search technology to find an response to the user's utterance.
 ##### 2.2.1 Create QnA Maker Knowledge Base
 
 Go to [QnA Maker Portal](https://www.qnamaker.ai/?WT.mc_id=m365-11189-cxa) and select `Sign in` from top right. Sign in with your Azure admin account.
@@ -291,7 +291,7 @@ npm run build
 npm run start
 ~~~
 
-#### 2.3. Create Azure Bot Channels Registration
+#### 2.4. Create Azure Bot Channels Registration
 
 1. Go to [Azure Portal](https://portal.azure.com/?WT.mc_id=m365-11189-cxa) and select `+ Create a resource`. Search for `Bot Channels Registration` and choose `Create`. Fill the fields as follows and select `Create`:
 
@@ -338,7 +338,7 @@ You will land in the **Certificates & secrets** section of this app registration
     BotPassword= <Client-Secret-Value>
     ```
 
-#### 2.4. Build and run your bot
+#### 2.5. Build and run your bot
 
 Open your terminal in Visual Studio Code (`Ctrl+ Shift + '`) and type the following scripts in sequence:
 
@@ -353,7 +353,7 @@ Open your terminal in Visual Studio Code (`Ctrl+ Shift + '`) and type the follow
 
 Now, your project is running on https://localhost:3978 which you've been tunneling with ngrok. To fully test the bot, ensure your Customer Orders App is still running as well (you'll need two terminal windows, plus one for ngrok).
 
-### 2.5. Test your project on Microsoft Teams
+### 2.6. Test your bot in Microsoft Teams
 
 1. Go to [Microsoft Teams](https://teams.microsoft.com) and login with your [M365 developer account](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant/?WT.mc_id=m365-11189-cxa).
 
@@ -389,10 +389,10 @@ Now, your project is running on https://localhost:3978 which you've been tunneli
 
 | Token | Value |
 |---|---|
-| CRM_APP_ID | The app ID you registered for the CustomerOrdersApp in section 1.2  |
-| CRM_HOST | The hostname you selected for the CustomerOrdersApp such as devappsforteams.local |
-| CRM_PORT | The port you are using for the CustomerOrdersApp, by default 8443 |
-| BOT_ID | The Bot ID (the Bot's app ID) you created when you created the Azure Bot Channel registration in section 2.3 |
+| <CRM_APP_ID> | The app ID you registered for the CustomerOrdersApp in section 1.2  |
+| <CRM_HOST> | The hostname you selected for the CustomerOrdersApp such as devappsforteams.local |
+| <CRM_PORT> | The port you are using for the CustomerOrdersApp, by default 8443 |
+| <BOT_ID> | The Bot ID (the Bot's app ID) you created when you created the Azure Bot Channel registration in section 2.3 |
 
 3. Review the manifest; you can change the descriptions and other details if you wish
 
