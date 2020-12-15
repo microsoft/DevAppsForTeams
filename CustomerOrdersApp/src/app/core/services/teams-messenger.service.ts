@@ -21,7 +21,7 @@ export class TeamsMessengerService {
             // channelId: this.teamsAuthService.channelId
         };
 
-        return this.http.post<IApiResponse>(this.botApiUrl + '/api/notify', change)
+        return this.http.post<IApiResponse>(this.botApiUrl + 'api/notify', change)
             .pipe(
                 map(res => {
                     console.log('notifyCustomerChanged called: ', change);
