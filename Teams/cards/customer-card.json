@@ -19,7 +19,7 @@
                         {
                             "type": "Image",
                             "style": "Person",
-                            "url": "https://learntogethercrm.ngrok.io/assets/images/${if($root.gender == 'female', 'female.png', 'male.png')}",
+                            "url": "${$root.crmUrl}/assets/images/${if($root.gender == 'female', 'female.png', 'male.png')}",
                             "size": "Medium"
                         }
                     ],

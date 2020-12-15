@@ -1,0 +1,17 @@
+{
+    "name": "customer-orders-app-manifest",
+    "version": "1.0.0",
+    "msteams": {
+        "teamsAppId": "513a58c7-fdca-49a9-9cd7-5f973a02c0d7"
+    },
+    "description": "Microsoft Teams conversation bot quickstart",
+    "author": "Microsoft",
+    "license": "MIT",
+    "main": "index.js",
+    "scripts": {
+        "build": "node zip.js"
+    },
+    "devDependencies": {
+        "adm-zip": "^0.4.16"
+    }
+}
