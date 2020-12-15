@@ -436,4 +436,4 @@ A dialog box will be displayed where you can select the channel or group convers
 
 1. After the app launched, from the tab-header bar choose **Customer App**. You should see the web app launched inside Teams
 
-NOTE: The bot stores a list of people and Teams channels to notify when the app is installed. Because the bot's database is stored in memory, as soon as you restart the bot it will forget and those notifications won't be sent unless you remove and re-add the app.
+**NOTE:** The bot stores a list of people and Teams channels to notify when the app is installed. Because the bot's database is stored in memory, as soon as you restart the bot it will forget and those notifications won't be sent unless you remove and re-add the app.
