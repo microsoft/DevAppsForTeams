@@ -159,11 +159,11 @@ Two Azure Cognitive Services, LUIS (Language Understanding Intelligent Services)
 
 ![Import the LUIS model](./docs/images/LUIS-1.png)
 
-[Import](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-manage-versions?WT.mc_id=m365-11189-cxa#import-version) `'TailwindLuis.json'` file available under **services > CognitiveServices** folder. Give your model a name and click "Done" to import the model.
+[Import](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-manage-versions?WT.mc_id=m365-11189-cxa#import-version) `'TailwindLuis.json'` file available under **Teams > services > CognitiveServices** folder. Give your model a name and click "Done" to import the model.
 
 ![Import the LUIS model](./docs/images/LUIS-2.png)
 
-3. You will see a list of the _intents_ the Bot can respond to.Train your LUIS model by choosing `Train` on the top right. 
+3. You will see a list of the _intents_ the Bot can respond to. Train your LUIS model by choosing `Train` on the top right. 
 
 ![Train the LUIS model](./docs/images/LUIS-3.png)
 
@@ -226,7 +226,7 @@ Click on `Create a knowledge base` on the top 1️⃣ and complete the steps sho
     * **Azure Search location:** Choose preferred location
     * **Azure Search pricing tier:** Choose pricing tier as *Standard*
     * **App name:** Gıve a name to your app
-    * **Website location:** Choose preffered location
+    * **Website location:** Choose preferred location
     * **App insights:** Enable
     * **App insights location:** Choose preferred location
     
@@ -245,6 +245,8 @@ Click on `Create a knowledge base` on the top 1️⃣ and complete the steps sho
 ![Create a Knowledge Base](./docs/images/QnA-2.png)
 
 * **Step 5:** Select `Create your KB`.
+
+Note: If you chose the free options when setting up QnA and get a message about the .tsv file being over 1 MB, you can select the **TailwindQnAMakerSmall.tsv** file. It's a smaller file with less questions in it.
 
 ##### 2.2.2 Train and publish your knowledge base
 
