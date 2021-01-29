@@ -1,4 +1,7 @@
 "use strict";
+
+// const { Http2ServerRequest } = require('http2');
+
 const   express     = require('express'),
         exphbs      = require('express-handlebars'),
         https       = require('https'),
@@ -239,15 +242,19 @@ if (!inContainer) {
     });
 }
 
+var isHttps = process.env.isHttps;
 // HTTP
-// app.listen(port);
-
-// HTTPS
-var privateKey  = fs.readFileSync('.cert/cert.key', 'utf8');
-var certificate = fs.readFileSync('.cert/cert.crt', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
-var httpsServer = https.createServer(credentials, app);
-httpsServer.listen(port, domain);
+if (!isHttps) {
+    app.listen(port);
+}
+else {
+    // HTTPS
+    var privateKey  = fs.readFileSync('.cert/cert.key', 'utf8');
+    var certificate = fs.readFileSync('.cert/cert.crt', 'utf8');
+    var credentials = {key: privateKey, cert: certificate};
+    var httpsServer = https.createServer(credentials, app);
+    httpsServer.listen(port, domain);
+}
 
 console.log('Express listening on port ' + port);
 

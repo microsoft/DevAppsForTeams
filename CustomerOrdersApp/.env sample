@@ -1,2 +1,4 @@
 AppId=<your app ID here>
 AppPassword=<your app password here>
+
+isHttps=true
