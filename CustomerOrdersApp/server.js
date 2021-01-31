@@ -242,7 +242,9 @@ if (!inContainer) {
     });
 }
 
-var isHttps = process.env.isHttps;
+var isHttps = (process.env.isHttps === 'true');
+console.log('HTTPS enabled: ' + isHttps);
+
 // HTTP
 if (!isHttps) {
     app.listen(port);
